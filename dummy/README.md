@@ -1,7 +1,7 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+Dummy role for testion role based scenarios in [ansible-core](https://github.com/tansudasli/ansible-core)
 
 Requirements
 ------------
