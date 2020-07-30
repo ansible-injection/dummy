@@ -1,4 +1,4 @@
 ---
 # defaults file for dummy
 vars:
-    xyz: "zabidin"
+    xyz: "default-zabidin"
