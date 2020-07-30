@@ -1,2 +1,7 @@
 ---
 # tasks file for dummy
+
+
+- name: create boot-disk
+  debug:
+    msg: "Message from the role: "
