@@ -1,4 +1,4 @@
 ---
 # vars file for dummy
 vars:
-    xyz: "default-var-zabidin"
+  xyz: "default-var-zabidin"
