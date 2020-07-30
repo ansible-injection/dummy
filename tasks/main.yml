@@ -2,6 +2,6 @@
 # tasks file for dummy
 
 
-- name: create boot-disk
+- name: from role
   debug:
     msg: "Message from the role: {{xyz}}"
