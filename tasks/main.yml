@@ -10,4 +10,4 @@
   debug:
     msg: "Message from the role: {{item.name}}"
   with_items:
-    - {{nodes}}
+    - "{{nodes}}"
