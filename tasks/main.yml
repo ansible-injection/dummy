@@ -2,6 +2,12 @@
 # tasks file for dummy
 
 
-- name: from role
+- name: from role - basic var scenario
   debug:
     msg: "Message from the role: {{xyz}}"
+
+- name: from role - complex var scenario
+  debug:
+    msg: "Message from the role: {{item.name}}"
+  with_items:
+    - {{nodes}}
