@@ -4,4 +4,4 @@
 
 - name: create boot-disk
   debug:
-    msg: "Message from the role: "
+    msg: "Message from the role: {{xyz}}"
