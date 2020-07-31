@@ -21,11 +21,69 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+Check (ansible-core)[https://github.com/tansudasli/ansible-core] repository for more details. Below is `run-role_dummy.yaml` content.
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+```
+- name: Run the role
+  hosts: localhost
+  gather_facts: no
+  
+  vars:
+    xyz: "zabidin"
+
+    #  complex variable scenario
+    # a)
+    nodes:
+      - name: master-node
+        zone: europe-west4-a
+        machine_type: f1-micro
+        ips:
+            - nic: 
+                name: "ip-01"
+      - name: worker-node
+        zone: europe-west4-a
+        machine_type: f1-micro
+        ips:
+          - nic: 
+              name: "w-ip-01"
+
+  tasks:
+   
+    - name: from playbook
+      debug: 
+        msg: "Message from playbook: {{xyz}}"
+
+# in roles, all variables have to be passed from run playbook! So, you have to define the variables here!
+# variables, in the role, under /vars or /default yaml files does not mean provides default values!
+# variables, in the playbook, usage ways change the variable injection. So use a or b, not both
+#   a) define a global variable on top of the playbook, and just define the role below
+#   b) define variables under role below  
+  roles: 
+    # a)
+    - {role: tansudasli.role_dummy}  #injects zabidin value from playbook' var section!
+    # - {role: tansudasli.role_dummy, xyz: "abidin"} # injects from playbook but overrides zabidin as abidin!
+    
+    # b)
+    # - role: tansudasli.role_dummy
+    #   vars:
+    #     nodes:
+    #       - name: secondary-master-node
+    #         zone: europe-west4-a
+    #         machine_type: f1-micro
+    #         ips:
+    #           - nic: 
+    #               name: "sm-ip-01"
+    # - role: tansudasli.role_dummy
+    #   vars:
+    #   nodes:
+    #     - name: worker-node-2
+    #       zone: europe-west4-a
+    #       machine_type: f1-micro
+    #       ips:
+    #         - nic: 
+    #             name: "w2-ip-01"      
+
+```
 
 License
 -------
