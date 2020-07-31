@@ -1,27 +1,51 @@
-Role Name
+role-dummy
 =========
 
-Dummy role for testion role based scenarios in [ansible-core](https://github.com/tansudasli/ansible-core)
+Dummy role for testion role based scenarios in [ansible-core](https://github.com/tansudasli/ansible-core). This role also contains complex variable use-cases in Ansible roles.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+- Install Ansible on your local or on a separate server. Run `brew install ansible`, then check `ansible --version`.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Only 2 type of variable have to be defined. 
+
+- `xyz` is the simple var, 
+- `nodes` is the complex var. This var is to simulate GCP infrastructure var definition. 
+
+```
+  vars:
+    xyz: "zabidin"
+
+    #  complex variable scenario
+    # a)
+    nodes:
+      - name: master-node
+        zone: europe-west4-a
+        machine_type: f1-micro
+        ips:
+            - nic: 
+                name: "ip-01"
+      - name: worker-node
+        zone: europe-west4-a
+        machine_type: f1-micro
+        ips:
+          - nic: 
+              name: "w-ip-01"
+```
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+n/a
 
 Example Playbook
 ----------------
 
-Check (ansible-core)[https://github.com/tansudasli/ansible-core] repository for more details. Below is `run-role_dummy.yaml` content.
+Below is `run-role_dummy.yaml` content in _ansible-core_ repository.
 
 ```
 - name: Run the role
@@ -88,9 +112,9 @@ Check (ansible-core)[https://github.com/tansudasli/ansible-core] repository for 
 License
 -------
 
-BSD
+Apache-2.0 License
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+[tansudasli](http://github.com/tansudasli)
