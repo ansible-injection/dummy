@@ -1,7 +1,7 @@
 role-dummy
 =========
 
-Dummy role for testion role based scenarios in [ansible-core](https://github.com/tansudasli/ansible-core). This role also contains complex variable use-cases in Ansible roles.
+Dummy role for testing role based scenarios in [ansible-core](https://github.com/tansudasli/ansible-core). This role also contains complex variable use-cases in Ansible roles.
 
 Requirements
 ------------
