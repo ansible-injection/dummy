@@ -23,18 +23,13 @@ Only 2 type of variable have to be defined.
     #  complex variable scenario
     # a)
     nodes:
-      - name: master-node
+      - name: standalone-node
         zone: europe-west4-a
         machine_type: f1-micro
         ips:
             - nic: 
-                name: "ip-01"
-      - name: worker-node
-        zone: europe-west4-a
-        machine_type: f1-micro
-        ips:
-          - nic: 
-              name: "w-ip-01"
+                name: "sa-ip-01"
+
 ```
 
 Dependencies
