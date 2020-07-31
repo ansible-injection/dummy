@@ -2,19 +2,13 @@
 # vars file for dummy
 vars:
 # basic var scenario 
-  xyz: "default-var-zabidin"
+  xyz: "default-zabidin"
 
 #  complex variable scenario
   nodes:
-    - name: master-node        #node-name such as name-node secondary-name-node data-node1 data-node2
-      zone: europe-west4-a     #distribute other nodes
+    - name: default-standalone-node        #node-name such as name-node secondary-name-node data-node1 data-node2
+      zone: europe-west4-a         #distribute other nodes
       machine_type: f1-micro
       ips:
           - nic: 
-              name: "ip-01"
-    - name: worker-node        #node-name such as name-node secondary-name-node data-node1 data-node2
-      zone: europe-west4-a     #distribute other nodes
-      machine_type: f1-micro
-      ips:
-        - nic: 
-            name: "w-ip-01"
+              name: "sa-ip-01"
