@@ -4,10 +4,10 @@
 
 - name: from role - basic var scenario
   debug:
-    msg: "Message from the role: {{xyz}}"
+    msg: "Message from the role: {{ xyz }}"
 
 - name: from role - complex var scenario
   debug:
-    msg: "Message from the role: {{item.name}}"
+    msg: "Message from the role: {{ item.name }}"
   with_items:
-    - "{{nodes}}"
+    - "{{ nodes }}"
